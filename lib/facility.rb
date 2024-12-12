@@ -6,7 +6,11 @@ class Facility # class for facility
     @address = facility [:address] #@address is an instance variable, facility is a hash,  [:address] is the key to the value of the address key
     @phone = facility [:phone] #@phone is an instance variable, facility is a hash,  [:phone] is the key to the value of the phone key
     @services = []
+
+  def add_service(service)
+    @services << service
   end
+end
 end
 
 #think data

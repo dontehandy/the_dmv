@@ -41,3 +41,6 @@ RSpec.describe Dmv do
     end
   end
 end
+
+
+#rpec on this file is ran using the command rspec spec/dmv_spec.rb

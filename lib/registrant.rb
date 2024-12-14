@@ -1,18 +1,20 @@
-class Registrant
-  attr_reader :name, :age, :permit, :license_data
-
-  def initialize(name, age, permit = false)
-    @name = name
-    @age = age
-    @permit = permit
-    @license_data = { written: false, license: false, renewed: false }
+class Registrant #creating a class called Registrant
+  attr_reader :name, :age, :permit, :license_data #with attributes of name, age, permit, and license_data
+                                                  #the : indicates that the attribute is a symbol
+  def initialize(name, age, permit = false) #initialize method with 3 parameters, name, age, and permit
+                                            #permit is set to false by default
+    @name = name #instance variable @name is set to the value of the name parameter
+    @age = age #instance variable @age is set to the value of the age parameter
+    @permit = permit #instance variable @permit is set to the value of the permit parameter
+    @license_data = { written: false, license: false, renewed: false } #license_data is a hash with 3 keys, written, license, and renewed
+     #hash--assignment operator-----{key: value, key: value, key: value}                                                                  
   end
 
-  def earn_permit
-    @permit = true
+  def earn_permit #method called earn_permit that sets the permit instance variable to true
+    @permit = true #which is set to false by default in the initialize method
   end
 
-  def permit?
-    @permit
+  def permit? #method called permit? that returns the value of the permit instance variable
+    @permit #which is also set to false by default in the initialize method
   end
 end

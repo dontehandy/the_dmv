@@ -44,8 +44,8 @@ registrant_2.earn_permit
 *(no value returned; just a change in the permit status?/typo/nuking it?)*
 
 #query methods and command methods are different
-#query methods return a boolean
-#command methods return a value
+#query methods return a boolean and pull data
+#command methods return a value and change data
 true
 
 registrant_2.permit?

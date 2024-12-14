@@ -1,4 +1,4 @@
-# The DMV
+<!-- # The DMV
 
 This is the starter repo for the BE Mod1 DMV project.
 
@@ -50,93 +50,90 @@ true
 
 registrant_2.permit?
 #=> true
----------------------------------------
+--------------------------------------- -->
 
 iteration two IP:vehicle registration
 
-pry(main)> require './lib/facility'
-#=> true
+require './lib/facility'
 
-pry(main)> require './lib/vehicle'
-#=> true
 
-pry(main)> facility_1 = Facility.new({name: 'DMV Tremont Branch', address: '2855 Tremont Place Suite 118 Denver CO 80205', phone: '(720) 865-4600'})
-#=> #<Facility:0x000000010e5ad5e8 @address="2855 Tremont Place Suite 118 Denver CO 80205", @name="DMV Tremont Branch", @phone="(720) 865-4600", @services=[]>
+require './lib/vehicle'
 
-pry(main)> facility_2 = Facility.new({name: 'DMV Northeast Branch', address: '4685 Peoria Street Suite 101 Denver CO 80239', phone: '(720) 865-4600'})
-#=> #<Facility:0x000000010e5ad480 @address="4685 Peoria Street Suite 101 Denver CO 80239", @name="DMV Northeast Branch", @phone="(720) 865-4600", @services=[]>
 
-pry(main)> cruz = Vehicle.new({vin: '123456789abcdefgh', year: 2012, make: 'Chevrolet', model: 'Cruz', engine: :ice} )
-#=> #<Vehicle:0x0000000135a48b08 @engine=:ice, @make="Chevrolet", @model="Cruz", @plate_type=nil, @registration_date=nil, @vin="123456789abcdefgh", @year=2012>
+facility_1 = Facility.new({name: 'DMV Tremont Branch', address: '2855 Tremont Place Suite 118 Denver CO 80205', phone: '(720) 865-4600'})
 
-pry(main)> bolt = Vehicle.new({vin: '987654321abcdefgh', year: 2019, make: 'Chevrolet', model: 'Bolt', engine: :ev} )
-#=> #<Vehicle:0x0000000125832180 @engine=:ev, @make="Chevrolet", @model="Bolt", @plate_type=nil, @registration_date=nil, @vin="987654321abcdefgh", @year=2019>
+facility_2 = Facility.new({name: 'DMV Northeast Branch', address: '4685 Peoria Street Suite 101 Denver CO 80239', phone: '(720) 865-4600'})
 
-pry(main)> camaro = Vehicle.new({vin: '1a2b3c4d5e6f', year: 1969, make: 'Chevrolet', model: 'Camaro', engine: :ice} )
-#=> #<Vehicle:0x0000000135adb610 @engine=:ice, @make="Chevrolet", @model="Camaro", @plate_type=nil, @registration_date=nil, @vin="1a2b3c4d5e6f", @year=1969>
 
-pry(main)> facility_1.add_service('Vehicle Registration')
-#=> ["Vehicle Registration"]
+cruz = Vehicle.new({vin: '123456789abcdefgh', year: 2012, make: 'Chevrolet', model: 'Cruz', engine: :ice} )
 
-pry(main)> cruz.registration_date
-#=> nil
+bolt = Vehicle.new({vin: '987654321abcdefgh', year: 2019, make: 'Chevrolet', model: 'Bolt', engine: :ev} )
 
-pry(main)> facility_1.registered_vehicles
-#=> []
 
-pry(main)> facility_1.collected_fees
-#=> 0
+camaro = Vehicle.new({vin: '1a2b3c4d5e6f', year: 1969, make: 'Chevrolet', model: 'Camaro', engine: :ice} )
 
-pry(main)> facility_1.register_vehicle(cruz)
-#=> [#<Vehicle:0x0000000135a48b08...>]
 
-pry(main)> cruz.registration_date
-#=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
+facility_1.add_service('Vehicle Registration')
 
-pry(main)> cruz.plate_type
-#=> :regular
 
-pry(main)> facility_1.registered_vehicles
-#=> [#<Vehicle:0x0000000135a48b08...>]
+cruz.registration_date
 
-pry(main)> facility_1.collected_fees
-#=> 100
 
-pry(main)> facility_1.register_vehicle(camaro)
-#=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>]
+facility_1.registered_vehicles
 
-pry(main)> camaro.registration_date
-#=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
 
-pry(main)> camaro.plate_type
-#=> :antique
+facility_1.collected_fees
 
-pry(main)> facility_1.register_vehicle(bolt)
-#=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>, #<Vehicle:0x0000000125832180...>]
 
-pry(main)> bolt.registration_date
-#=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
+facility_1.register_vehicle(cruz)
 
-pry(main)> bolt.plate_type
-#=> :ev
 
-pry(main)> facility_1.registered_vehicles
-#=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>, #<Vehicle:0x0000000125832180...>]
+cruz.registration_date
 
-pry(main)> facility_1.collected_fees
-#=> 325
 
-pry(main)> facility_2.registered_vehicles
-#=> []
+cruz.plate_type
 
-pry(main)> facility_2.services
-#=> []
 
-pry(main)> facility_2.register_vehicle(bolt)
-#=> nil
+facility_1.registered_vehicles
 
-pry(main)> facility_2.registered_vehicles
-#=> []
 
-pry(main)> facility_2.collected_fees
-#=> 0
+facility_1.collected_fees
+
+
+facility_1.register_vehicle(camaro)
+
+
+camaro.registration_date
+
+
+camaro.plate_type
+
+
+facility_1.register_vehicle(bolt)
+
+
+bolt.registration_date
+
+
+bolt.plate_type
+
+
+facility_1.registered_vehicles
+
+
+facility_1.collected_fees
+
+
+facility_2.registered_vehicles
+
+facility_2.services
+
+
+facility_2.register_vehicle(bolt)
+
+
+facility_2.registered_vehicles
+
+
+facility_2.collected_fees
+

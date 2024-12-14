@@ -1,3 +1,6 @@
+require 'date'
+require 'pry'
+
 class Facility # class for facility
   attr_reader :name, :address, :phone, :services, :registered_vehicles, :collected_fees #reader makes the instance variables accessible outside the class
                                                  #under the hood, just like a method that returns the value of the instance variable
@@ -28,6 +31,7 @@ class Facility # class for facility
       @collected_fees += 100
     end
 
+    vehicle.registration_date = Date.today
     @registered_vehicles << vehicle
   end
 end

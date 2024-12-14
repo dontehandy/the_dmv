@@ -30,67 +30,67 @@ camaro = Vehicle.new({vin: '1a2b3c4d5e6f', year: 1969, make: 'Chevrolet', model:
 facility_1.add_service('Vehicle Registration')
 #=> ["Vehicle Registration"]
 
-cruz.registration_date
+cruz.registration_date #checks the registration date of the cruz vehicle
 #=> nil
 
-facility_1.registered_vehicles
+facility_1.registered_vehicles #checks the registered vehicles in facility 1
 #=> []
 
-facility_1.collected_fees
+facility_1.collected_fees #checks the collected fees in facility 1
 #=> 0
 
-facility_1.register_vehicle(cruz)
+facility_1.register_vehicle(cruz) #registers the cruz vehicle in facility 1
 #=> [#<Vehicle:0x0000000135a48b08...>]
 
-cruz.registration_date
+cruz.registration_date #checks the registration date of the cruz vehicle
 #=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
 
-cruz.plate_type
+cruz.plate_type #checks the plate type of the cruz vehicle #series of if else statements to determine type and price of plate
 #=> :regular
 
-facility_1.registered_vehicles
+facility_1.registered_vehicles #checks the registered vehicles in facility 1
 #=> [#<Vehicle:0x0000000135a48b08...>]
 
-facility_1.collected_fees
+facility_1.collected_fees #checks the collected fees in facility 1
 #=> 100
 
-facility_1.register_vehicle(camaro)
+facility_1.register_vehicle(camaro) #registers the camaro vehicle in facility 1
 #=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>]
 
-camaro.registration_date
+camaro.registration_date #checks the registration date of the camaro vehicle
 #=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
 
-camaro.plate_type
+camaro.plate_type #checks the plate type of the camaro vehicle
 #=> :antique
 
-facility_1.register_vehicle(bolt)
+facility_1.register_vehicle(bolt) #registers the bolt vehicle in facility 1
 #=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>, #<Vehicle:0x0000000125832180...>]
 
-bolt.registration_date
+bolt.registration_date #checks the registration date of the bolt vehicle
 #=> #<Date: 2023-01-12 ((2459957j,0s,0n),+0s,2299161j)>
 
-bolt.plate_type
+bolt.plate_type #checks the plate type of the bolt vehicle
 #=> :ev
 
-facility_1.registered_vehicles
+facility_1.registered_vehicles #checks the registered vehicles in facility 1
 #=> [#<Vehicle:0x0000000135a48b08...>, #<Vehicle:0x0000000135adb610...>, #<Vehicle:0x0000000125832180...>]
 
-facility_1.collected_fees
+facility_1.collected_fees #checks the collected fees in facility 1
 #=> 325
 
-facility_2.registered_vehicles
+facility_2.registered_vehicles #checks the registered vehicles in facility 2
 #=> []
 
-facility_2.services
+facility_2.services #checks the services in facility 2
 #=> []
 
-facility_2.register_vehicle(bolt)
+facility_2.register_vehicle(bolt) #registers the bolt vehicle in facility 2
 #=> nil
 
-facility_2.registered_vehicles
+facility_2.registered_vehicles #checks the registered vehicles in facility 2
 #=> []
 
-facility_2.collected_fees
+facility_2.collected_fees #checks the collected fees in facility 2
 #=> 0
 
 

@@ -46,22 +46,24 @@ class Facility # class for facility
 
   def administer_written_test(registrant)
     return false unless @services.include?('Written Test') && registrant.age >= 16 && registrant.permit?
-
-    registrant.license_data[:written] = true
+    #this will return false if the services array does not include 'Written Test' or if the registrant is under 16 or does not have a permit
+    # && is used to combine multiple conditions, all conditions must be true for the statement to be true
+    registrant.license_data[:written] = true #if the conditions are met, the written key in the license_data hash is set to true
     true
   end
 
   def administer_road_test(registrant)
     return false unless @services.include?('Road Test') && registrant.license_data[:written]
-
+    #this will return false if the services array does not include 'Road Test' or if the written key in the license_data hash is false
     registrant.license_data[:license] = true
     true
   end
 
   def renew_drivers_license(registrant)
     return false unless @services.include?('Renew License') && registrant.license_data[:license]
-
-    registrant.license_data[:renewed] = true
+    #this will return false if the services array does not include 'Renew License' or if the license key in the license_data hash is false
+    #meaning the registrant does not have a license or the license is expired
+    registrant.license_data[:renewed] = true #renewed key in the license_data hash is set to true
     true
   end
 end

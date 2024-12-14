@@ -40,4 +40,16 @@ RSpec.describe Vehicle do
       expect(ev_vehicle.electric_vehicle?).to be true
     end
   end
+
+  describe '.create_vehicles_from_data' do
+    it 'creates Vehicle objects from the data set' do
+      wa_ev_registrations = [
+        { vin: '123456789abcdefgh', year: 2020, make: 'Tesla', model: 'Model S', engine: :ev },
+        { vin: '987654321zyxwvuts', year: 2019, make: 'Chevrolet', model: 'Bolt', engine: :ev }
+      ]
+      vehicles = Vehicle.create_vehicles_from_data(wa_ev_registrations)
+      expect(vehicles).to all(be_an_instance_of(Vehicle))
+      expect(vehicles.first.engine).to eq(:ev)
+    end
+  end
 end

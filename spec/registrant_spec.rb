@@ -1,4 +1,8 @@
+#tdd stands for test driven design
+#read interaction pattern, write test, run test, write code, run test, refactor code, run test - vicious cycle. #DEVOPS/#AGILE
+
 #this is an rspec test file for the registrant class
+#rspec is a gem that is used to test ruby code
 
 require 'rspec' # require the Rspec gem
 require './lib/registrant' # require the file we are testing

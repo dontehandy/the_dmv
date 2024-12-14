@@ -6,7 +6,7 @@ class Registrant #creating a class called Registrant
   def initialize(name, age, permit = false) #initialize method with 3 parameters, name, age, and permit
                                             #permit is set to false by default
     @name = name #instance variable @name is set to the value of the name parameter
-    @age = age #instance variable @age is set to the value of the age parameter
+    @age = age #instance variable @age is set to the value of the age parameter #data type is integer 
     @permit = permit #instance variable @permit is set to the value of the permit parameter
     @license_data = { written: false, license: false, renewed: false } #license_data is a hash with 3 keys, written, license, and renewed
      #hash--assignment operator-----{key: value, key: value, key: value}                                                                  

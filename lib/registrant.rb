@@ -1,6 +1,8 @@
 class Registrant #creating a class called Registrant
   attr_reader :name, :age, :permit, :license_data #with attributes of name, age, permit, and license_data
                                                   #the : indicates that the attribute is a symbol
+                                                  #the attr_reader method creates a getter method for each attribute
+                                                  #making the instance variables accessible outside the class
   def initialize(name, age, permit = false) #initialize method with 3 parameters, name, age, and permit
                                             #permit is set to false by default
     @name = name #instance variable @name is set to the value of the name parameter

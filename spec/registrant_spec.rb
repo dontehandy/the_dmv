@@ -5,36 +5,36 @@ require './lib/registrant' # require the file we are testing
 
 RSpec.describe Registrant do #rspec describe method Registrant for class name as an argument
     describe '#initialize' do #initialize method 
-        it 'creates an instance of Registrant' do
-            registrant = Registrant.new('Bruce', 18, true)
-            expect(registrant).to be_an_instance_of(Registrant)
+        it 'creates an instance of Registrant' do #creates a test for the initialize method"
+            registrant = Registrant.new('Bruce', 18, true) #establishes a new instance of the Registrant class behind the variable "registrant"
+            expect(registrant).to be_an_instance_of(Registrant) #expects the registrant variable to be an instance of the Registrant class
         end
 
-        it 'has a name' do
-            registrant = Registrant.new('Bruce', 18, true)
-            expect(registrant.name).to eq('Bruce')
+        it 'has a name' do #test for the name instance variable
+            registrant = Registrant.new('Bruce', 18, true) #establishes a new instance of the Registrant class behind the variable "registrant"
+            expect(registrant.name).to eq('Bruce') #expects the name instance variable to be equal to the string 'Bruce'
         end
 
         it 'has an age' do
-            registrant = Registrant.new('Bruce', 18, true)
-            expect(registrant.age).to eq(18)
+            registrant = Registrant.new('Bruce', 18, true) #test for the age instance variable
+            expect(registrant.age).to eq(18) #expects the age of the new instance, "Bruce" to be 18
         end
 
         it 'has a permit status' do
-            registrant = Registrant.new('Bruce', 18, true)
+            registrant = Registrant.new('Bruce', 18, true) #test for the permit status
             expect(registrant.permit).to eq(true)
         end
 
         it 'has default license data' do
-            registrant = Registrant.new('Bruce', 18, true)
+            registrant = Registrant.new('Bruce', 18, true) #test for the default license data
             expect(registrant.license_data).to eq({ written: false, license: false, renewed: false })
         end
     end
 
     describe '#permit?' do
-        it 'returns the permit status' do
+        it 'returns the permit status' do #test for the permit status 
             registrant = Registrant.new('Bruce', 18, true)
-            expect(registrant.permit?).to eq(true)
+            expect(registrant.permit?).to eq(true) #.permit? is a method that returns the permit status
         end
     end
 
@@ -43,8 +43,18 @@ RSpec.describe Registrant do #rspec describe method Registrant for class name as
             registrant = Registrant.new('Bruce', 18, false)
             registrant.earn_permit
             expect(registrant.permit).to eq(true)
+            #expect is considered the "assert" in rspec
+            #expect is a method that takes a value and returns an expectation object
+            #expectations are used to define the expected outcome of a test example
+    
         end
     end
 end
 
 #run with rspec spec/registrant_spec.rb
+
+#SetUp 
+#Execution 
+#Assertion 
+#Teardown
+#SetUp create an instance of the class

@@ -24,23 +24,30 @@ registrant_1.age
 registrant_1.permit? --created a method and had to back out to reassign it from the default of a false to a true
 #=> true
 
-pry(main)> registrant_1.license_data
+registrant_1.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
 
-pry(main)> registrant_2.name
+registrant_2.name
 #=> "Penny"
 
-pry(main)> registrant_2.age
+registrant_2.age
 #=> 15
 
-pry(main)> registrant_2.permit?
+registrant_2.permit?
 #=> false
 
-pry(main)> registrant_2.license_data
+registrant_2.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
 
-pry(main)> registrant_2.earn_permit
-(no value returned; just a change in the permit status)
-pry(main)> registrant_2.permit?
+registrant_2.earn_permit
+
+*(no value returned; just a change in the permit status?/typo/nuking it?)*
+
+#query methods and command methods are different
+#query methods return a boolean
+#command methods return a value
+true
+
+registrant_2.permit?
 #=> true
 ---------------------------------------

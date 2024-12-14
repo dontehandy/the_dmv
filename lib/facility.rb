@@ -2,7 +2,7 @@ class Facility # class for facility
   attr_reader :name, :address, :phone, :services #reader makes the instance variables accessible outside the class
                                                  #under the hood, just like a method that returns the value of the instance variable
   def initialize(facility)  
-    @name = facility [:name] #@name is an instance variable, facility is a hash,  [:name] is the key to the value of the name key
+    @name = facility [:name] #@name is an instance variable, facility is a hash,  [:name is a symbol] is the key to the value of the name key 
     @address = facility [:address] #@address is an instance variable, facility is a hash,  [:address] is the key to the value of the address key
     @phone = facility [:phone] #@phone is an instance variable, facility is a hash,  [:phone] is the key to the value of the phone key
     @services = []

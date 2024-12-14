@@ -13,7 +13,7 @@ class Vehicle
     @model = details[:model]
     @engine = details[:engine]
     @registration_date = nil
-    @plate_type = :regular
+    @plate_type = :regular #being read by the facility class to determine the fee, default = reg
   end
 
   def age

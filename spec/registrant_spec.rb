@@ -8,8 +8,8 @@ require 'rspec' # require the Rspec gem
 require './lib/registrant' # require the file we are testing
 
 RSpec.describe Registrant do #rspec describe method Registrant for class name as an argument. #RSpec -capitalized
-  before(:each) do
-    @registrant = Registrant.new('Bruce', 18, true) #this is considered the set up
+  before(:each) do #this allows us to create a new instance of the Registrant class before each test
+    @registrant = Registrant.new('Bruce', 18, true) #this is considered the set up #shows the thing that we are testing on
   end
 
   describe '#initialize' do #initialize method 

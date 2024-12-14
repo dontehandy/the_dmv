@@ -21,7 +21,7 @@ registrant_1.permit? #method for permit?
 #for registrant_1
 #=> true
 
-registrant_1.license_data #method that will return the key value pairs of @license data hash
+registrant_1.license_data #method that will return the key value pairs of @license data hash in Registrant class
 #=> {:written=>false, :license=>false, :renewed=>false}
 
 registrant_2.name
@@ -35,10 +35,10 @@ registrant_2.permit? #method for permit?
 #for registrant_2
 #=> false
 
-registrant_2.license_data #method that will return the key value pairs of @license data hash
+registrant_2.license_data #method that will return the key value pairs of @license data hash in Registrant class
 #=> {:written=>false, :license=>false, :renewed=>false} - using : makes it a symbol and not a string
 
-registrant_2.earn_permit #is a an action method that will change the permit attribute to true
+registrant_2.earn_permit #is a an action method that will change the permit attribute to true from the Registrant class
 
 registrant_2.permit? #is a predicate method that will check if the permit attribute is true
 #=> true

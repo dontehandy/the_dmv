@@ -2,7 +2,7 @@
 require './lib/facility'
 require './lib/vehicle'
 
-#pry - load 'it2_vr_ip.rb'
+#pry -> load 'it2_vr_ip.rb'
 
 # FILE: it2_vr_ip.rb
 

@@ -16,7 +16,7 @@ class Facility # class for facility
   end
 
   def add_service(service) #method to add a service to the services array
-    @services << service #array holds details[:services]  
+    @services << service #array holds details[:services], [:services] is the key to the value of the services key
   end         
   
   # *refactor  #details is a hash, [:services] is the key to the value of the services key, meaning the value of the services key is an array

@@ -6,7 +6,7 @@ require 'date'
 require 'pry'
 
 RSpec.describe Facility do
-  before(:each) do
+  before(:each) do #using before(:each) to create a new instance of the Facility class and store it in the @facility variable
     @facility = Facility.new({ name: 'DMV Tremont Branch', address: '2855 Tremont Place Suite 118 Denver CO 80205', phone: '(720) 865-4600', services: ['Vehicle Registration', 'Written Test', 'Road Test', 'Renew License'] })
     @vehicle = Vehicle.new({ vin: '123456789abcdefgh', year: 2012, make: 'Chevrolet', model: 'Cruz', engine: :ice })
     @registrant = Registrant.new('Bruce', 18, true)

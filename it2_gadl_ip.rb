@@ -5,7 +5,7 @@
 require './lib/registrant'
 require './lib/facility'
 
-# pry - load 'it2_gadl_ip.rb'
+# pry -> load 'it2_gadl_ip.rb'
 
 require './lib/registrant'
 #=> true
@@ -13,7 +13,7 @@ require './lib/registrant'
 require './lib/facility'
 #=> true
 
-registrant_1 = Registrant.new('Bruce', 18, true )
+registrant_1 = Registrant.new('Bruce', 18, true ) #is the only one with permit set to true
 #=> #<Registrant:0x000000012d863e80 @age=18, @license_data={:written=>false, :license=>false, :renewed=>false}, @name="Bruce", @permit=true>
 
 registrant_2 = Registrant.new('Penny', 16 )
@@ -30,22 +30,22 @@ facility_2 = Facility.new({name: 'DMV Northeast Branch', address: '4685 Peoria S
 
 # Written Test
 
-registrant_1.license_data
+registrant_1.license_data #check license data and returns hash
 #=> {:written=>false, :license=>false, :renewed=>false}
 
-registrant_1.permit?
+registrant_1.permit? #check if permit is true
 #=> true
 
-facility_1.administer_written_test(registrant_1)
+facility_1.administer_written_test(registrant_1) #administer written test to registrant_1, false if permit is false
 #=> false
 
-registrant_1.license_data
+registrant_1.license_data #check license data and returns hash
 #=> {:written=>false, :license=>false, :renewed=>false}
 
-facility_1.add_service('Written Test')
+facility_1.add_service('Written Test') #added service to facility_1
 #=> ["Written Test"]
 
-facility_1.administer_written_test(registrant_1)
+facility_1.administer_written_test(registrant_1) #administer written test to registrant_1, true if permit is true
 #=> true
 
 registrant_1.license_data
@@ -57,15 +57,15 @@ registrant_2.age
 registrant_2.permit?
 #=> false
 
-facility_1.administer_written_test(registrant_2)
+facility_1.administer_written_test(registrant_2) #administer written test to registrant_2, false if permit is false
 #=> false
 
-registrant_2.earn_permit
+registrant_2.earn_permit #earn permit for registrant_2
 
-facility_1.administer_written_test(registrant_2)
+facility_1.administer_written_test(registrant_2) #administer written test to registrant_2, true if permit is true
 #=> true
 
-registrant_2.license_data
+registrant_2.license_data #check license data and returns hash
 #=> {:written=>true, :license=>false, :renewed=>false}
 
 registrant_3.age
@@ -74,12 +74,12 @@ registrant_3.age
 registrant_3.permit?
 #=> false
 
-facility_1.administer_written_test(registrant_3)
+facility_1.administer_written_test(registrant_3) #administer written test to registrant_3, false if permit is false
 #=> false
 
-registrant_3.earn_permit
+registrant_3.earn_permit #earn permit for registrant_3
 
-facility_1.administer_written_test(registrant_3)
+facility_1.administer_written_test(registrant_3) #administer written test to registrant_3, true if permit is true
 #=> false
 
 registrant_3.license_data
@@ -87,24 +87,24 @@ registrant_3.license_data
 
 # Road Test
 
-facility_1.administer_road_test(registrant_3)
+facility_1.administer_road_test(registrant_3) #administer road test to registrant_3, false if written test is false
 #=> false
 
-registrant_3.earn_permit
+registrant_3.earn_permit #earn permit for registrant_3
 
-facility_1.administer_road_test(registrant_3)
+facility_1.administer_road_test(registrant_3) #administer road test to registrant_3, false if written test is false
 #=> false
 
-registrant_3.license_data
+registrant_3.license_data #check license data and returns hash
 #=> {:written=>false, :license=>false, :renewed=>false}
 
-facility_1.administer_road_test(registrant_1)
+facility_1.administer_road_test(registrant_1) #administer road test to registrant_1, false if written test is false
 #=> false
 
-facility_1.add_service('Road Test')
+facility_1.add_service('Road Test') #added service to facility_1
 #=> ["Written Test", "Road Test"]
 
-facility_1.administer_road_test(registrant_1)
+facility_1.administer_road_test(registrant_1) #administer road test to registrant_1, true if written test is true
 #=> true
 
 registrant_1.license_data
@@ -118,13 +118,13 @@ registrant_2.license_data
 
 # Renew License
 
-facility_1.renew_drivers_license(registrant_1)
+facility_1.renew_drivers_license(registrant_1) #renew license for registrant_1, false if written test is false
 #=> false
 
-facility_1.add_service('Renew License')
+facility_1.add_service('Renew License') #added service to facility_1
 #=> ["Written Test", "Road Test", "Renew License"]
 
-facility_1.renew_drivers_license(registrant_1)
+facility_1.renew_drivers_license(registrant_1) #renew license for registrant_1, true if written test is true
 #=> true
 
 registrant_1.license_data
@@ -141,6 +141,8 @@ facility_1.renew_drivers_license(registrant_2)
 
 registrant_2.license_data
 #=> {:written=>true, :license=>true, :renewed=>true}
+
+#zoom out of code and relate to actual license logic
 
 
 

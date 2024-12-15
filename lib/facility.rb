@@ -28,7 +28,7 @@ class Facility # class for facility
     return unless @services.include?('Vehicle Registration') #will return nil if the services array does not include 'Vehicle Registration'
 
     #if else logic to determine the plate type and fees collected
-    if vehicle.age >= 25 #must be 25 years or older to be considered an antique vehicle
+    if vehicle.age >= 25 #must be 25 years or older to be considered an antique vehicle -defined in the vehicle class
       vehicle.plate_type = :antique #if older than 25, the plate type is set to :antique
       @collected_fees += 25 #is an instance variable that holds the total fees collected
     elsif vehicle.electric_vehicle? #if the vehicle is an electric vehicle
@@ -40,7 +40,7 @@ class Facility # class for facility
     end
     #plate_type is a method established in the vehicle class
 
-    vehicle.registration_date = Date.today #will set the registration date to the current date
+    vehicle.registration_date = Date.today #will set the registration date to the current date - Date is a class in the ruby standard library
     @registered_vehicles << vehicle #and shovel the vehicle into the registered_vehicles array
   end
 

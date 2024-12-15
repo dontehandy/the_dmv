@@ -3,8 +3,8 @@ require 'date'
 require 'pry'
 
 class Vehicle
-  attr_reader :vin, :year, :make, :model, :engine
-  attr_accessor :plate_type, :registration_date
+  attr_reader :vin, :year, :make, :model, :engine #used to make the instance variables accessible outside the class
+  attr_accessor :plate_type, :registration_date #used to make the instance variables accessible outside the class and to change the value of the instance variable
 
   def initialize(details)
     @vin = details[:vin]
@@ -16,7 +16,7 @@ class Vehicle
     @plate_type = :regular #being read by the facility class to determine the fee, default = reg
   end
 
-  def age
+  def age 
     current_year = Time.now.year
     current_year - @year
   end
@@ -26,7 +26,7 @@ class Vehicle
   end
 
   def electric_vehicle?
-    @engine == :ev || @engine == :electric
+    @engine == :ev || @engine == :electric #|| is a logical OR operator, if the left side is false, it will return the right side
   end
 
   def self.create_vehicles_from_data(data)

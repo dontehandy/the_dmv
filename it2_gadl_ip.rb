@@ -118,7 +118,7 @@ registrant_2.license_data
 
 # Renew License
 
-facility_1.renew_drivers_license(registrant_1) #renew license for registrant_1, false if written test is false
+facility_1.renew_drivers_license(registrant_1) #renew license for registrant_1, false because the service doesn't exist
 #=> false
 
 facility_1.add_service('Renew License') #added service to facility_1
@@ -130,13 +130,13 @@ facility_1.renew_drivers_license(registrant_1) #renew license for registrant_1, 
 registrant_1.license_data
 #=> {:written=>true, :license=>true, :renewed=>true}
 
-facility_1.renew_drivers_license(registrant_3)
+facility_1.renew_drivers_license(registrant_3) #false because written and road test are false
 #=> false
 
 registrant_3.license_data
 #=> {:written=>false, :license=>false, :renewed=>false}
 
-facility_1.renew_drivers_license(registrant_2)
+facility_1.renew_drivers_license(registrant_2) #true because written and road test are true
 #=> true
 
 registrant_2.license_data

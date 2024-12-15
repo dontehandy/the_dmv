@@ -1,7 +1,7 @@
 # FILE: lib/vehicle_factory.rb
 require './lib/vehicle'
 
-class VehicleFactory
+class VehicleFactory #creates the car catalog 
   def create_vehicles(data)
     data.map do |vehicle_data|
       Vehicle.new({

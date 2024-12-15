@@ -1,35 +1,27 @@
-require 'faraday' #faraday is a gem that allows you to make http requests
-require 'json' #json is a class in the ruby standard library
+require 'faraday'
+require 'json'
 require 'pry'
 
 class DmvDataService
-  def load_data(source) #method to load data from a source
-    response = Faraday.get(source) #faraday.get is a method that makes a get request to the source
-    JSON.parse(response.body, symbolize_names: true) #JSON.parse is a method that parses the response body into a hash
+  def load_data(source)
+    response = Faraday.get(source)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def wa_ev_registrations
-    @wa_ev_registrations ||= load_data('https://data.wa.gov/resource/rpr4-cgyd.json') 
-    #the ||= is a conditional assignment operator, it will only assign the value if the variable is nil or false
-    #@wa_ev_registrations is an instance variable that holds the data from the source
+    @wa_ev_registrations ||= load_data('https://data.wa.gov/resource/rpr4-cgyd.json')
   end
 
   def co_dmv_office_locations
     @co_dmv_office_locations ||= load_data('https://data.colorado.gov/resource/dsw3-mrn4.json')
-    #the ||= is a conditional assignment operator, it will only assign the value if the variable is nil or false
-    #@co_dmv_office_locations is an instance variable that holds the data from the source
   end
 
   def ny_dmv_office_locations
     @ny_dmv_office_locations ||= load_data('https://data.ny.gov/resource/9upz-c7xg.json')
-    #the ||= is a conditional assignment operator, it will only assign the value if the variable is nil or false
-    #@ny_dmv_office_locations is an instance variable that holds the data from the source
   end
 
   def mo_dmv_office_locations
     @mo_dmv_office_locations ||= load_data('https://data.mo.gov/resource/835g-7keg.json')
-    #the ||= is a conditional assignment operator, it will only assign the value if the variable is nil or false
-    #@mo_dmv_office_locations is an instance variable that holds the data from the source
   end
 end
 
@@ -46,7 +38,7 @@ end
 
 # How can we access data that is nested more deeply?
 
-#1 require 'pry' - check on the top of the file
+#1 require 'pry' - check on the top of the file ??
 #2 require './lib/dmv_data_service' - to load the file, return should be true - q
 #3 service = DmvDataService.new, data = service.wa_ev_registrations - q
 #4 data.class - returns ARRAY #What is the datatype? 
@@ -65,6 +57,34 @@ end
 #data[0] #returns the first element in the array  #same as data.first q
 
 #same as any other array, you can access the elements by their index
+
+
+# _________________________________________________________
+
+# to check in pry, run from lib folder
+# require './dmv_data_service'  - -- #this will return true and it loads the file
+# DmvDataService.new.co_dmv_office_locations
+# DmvDataService.new.ny_dmv_office_locations
+# DmvDataService.new.mo_dmv_office_locations
+# the return will be the data from the colorado dmv office locations in a hash format
+
+# => [{:the_geom=>{:type=>"Point", :coordinates=>[-104.97443112500002, 39.75525297420336]},
+#   :dmv_id=>"1",
+#   :dmv_office=>"DMV Tremont Branch",
+#   :address_li=>"2855 Tremont Place",
+#   :address__1=>"Suite 118",
+#   :city=>"Denver",
+#   :state=>"CO",
+#   :zip=>"80205",
+#   :phone=>"(720) 865-4600",
+#   :hours=>"Mon, Tue, Thur, Fri  8:00 a.m.- 4:30 p.m. / Wed 8:30 a.m.-4:30 p.m.",
+#   :services_p=>"vehicle titles, registration, renewals;  VIN inspections",
+#   :parking_no=>"parking available in the lot at the back of the bldg (Glenarm Street)",
+#   :photo=>"images/Tremont.jpg",
+#   :address_id=>"175164",
+
+
+
 
 
 

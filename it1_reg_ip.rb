@@ -1,3 +1,8 @@
+# This will execute all commands in the it1_reg_ip file sequentially.
+# By default, if any error occurs, the script will stop execution at that line, 
+# and Pry will return to the REPL, allowing you to debug interactively.
+
+
 # FILE: it1_reg_ip.rb
 #pry ->  load 'it1_reg_ip.rb'
 

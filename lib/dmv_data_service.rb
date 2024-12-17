@@ -45,18 +45,21 @@ end
 
 # How can we access data that is nested more deeply?
 
+#open pry from lib, run commands on left: 
 #1 require 'pry' - check on the top of the file ??
-#2 require './lib/dmv_data_service' - to load the file, return should be true - q
-#3 service = DmvDataService.new, data = service.wa_ev_registrations - q
-#4 data.class - returns ARRAY #What is the datatype? 
+#2 require './dmv_data_service' - to load the file, return should be true - q
+#3 service = DmvDataService.new - to create a new instance of the class - q
+#4 data = service.wa_ev_registrations - to get the data from the washington ev registration source - q
+#5 data.class - returns ARRAY #What is the datatype? --rspec test will verify a new instance is an array
+
 
 #What information is here? 
-#running with comma there is less information returned - 1 or 2 hybrid vehicles
 #running individually there is more information returned - EVERYTHING THAT THE FILE HAS
 
 
 # How can we access data that is nested more deeply?
 #since its an array, we can access the first element by using some simple methods to look around
+
 #data.first - returns the first element in the array
 #data.count - returns the number of elements in the array which is 1000
 #data.first.keys #returns an array of the keys in the first element of the array
@@ -73,7 +76,10 @@ end
 # DmvDataService.new.co_dmv_office_locations
 # DmvDataService.new.ny_dmv_office_locations
 # DmvDataService.new.mo_dmv_office_locations
-# the return will be the data from the colorado dmv office locations in a hash format
+
+ #the return will be the data from the colorado dmv office locations in a hash format
+ #will give out details of the dmv office locations in colorado as a hash 
+ #below is an example of the data that is returned from the colorado dmv office locations source
 
 # => [{:the_geom=>{:type=>"Point", :coordinates=>[-104.97443112500002, 39.75525297420336]},
 #   :dmv_id=>"1",

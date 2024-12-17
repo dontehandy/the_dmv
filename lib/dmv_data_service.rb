@@ -2,14 +2,21 @@ require 'faraday'
 require 'json'
 require 'pry'
 
+#to run rspec for this class only: rspec spec/dmv_data_service_spec.rb
+
 class DmvDataService
   def load_data(source)
     response = Faraday.get(source)
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def wa_ev_registrations
+  def wa_ev_registrations #method called wa_ev_registrations that returns the data from the washington ev registration source
     @wa_ev_registrations ||= load_data('https://data.wa.gov/resource/rpr4-cgyd.json')
+    #this is the instance variable that is used to memoize the data from the washington ev registration source
+    #||= is the memoization operator that is used to assign the value on the right to the variable on the left if the variable is nil
+    #load_data is the method that is used to load the data from the washington ev registration source
+    #('https://data.wa.gov/resource/rpr4-cgyd.json') is the argument that is passed into the load_data method which is the washington ev registration source
+    #the data is returned as a JSON object
   end
 
   def co_dmv_office_locations

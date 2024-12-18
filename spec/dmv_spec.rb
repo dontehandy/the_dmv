@@ -23,9 +23,12 @@ RSpec.describe Dmv do
     end
   end
 
-  describe '#facilities_offering_service' do
+  describe '#facilities_offering_service' do #method to return list of facilities offering a specified service
     it 'can return list of facilities offering a specified Service' do
       @facility_1.add_service('New Drivers License')
+      #@facility_1 is the facility object
+      #.add_service is the method to add a service to the facility
+      #('New Drivers License') is the service being added
       @facility_1.add_service('Renew Drivers License')
       @facility_2.add_service('New Drivers License')
       @facility_2.add_service('Road Test')
@@ -34,6 +37,9 @@ RSpec.describe Dmv do
       @facility_3.add_service('Road Test')
 
       @dmv.add_facility(@facility_1)
+      #@dmv is the dmv object
+      #.add_facility is the method to add a facility to the dmv
+      #(@facility_1) is the facility being added
       @dmv.add_facility(@facility_2)
       @dmv.add_facility(@facility_3)
 

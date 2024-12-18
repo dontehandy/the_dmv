@@ -8,6 +8,10 @@ class Vehicle
 
   def initialize(details)
     @vin = details[:vin]
+    #@vin is the instance variable
+    # = is the assignment operator
+    #details is the argument
+    #[:vin] is the key
     @year = details[:year]
     @make = details[:make]
     @model = details[:model]
@@ -17,8 +21,8 @@ class Vehicle
   end
 
   def age 
-    current_year = Time.now.year
-    current_year - @year
+    current_year = Time.now.year #Time.now.year is a method that returns the current year
+    current_year - @year #this is the age of the vehicle
   end
 
   def antique?
@@ -32,7 +36,10 @@ class Vehicle
   def self.create_vehicles_from_data(data)
     data.map do |vehicle_data|
       Vehicle.new({
-        vin: vehicle_data[:vin],
+        vin: vehicle_data[:vin], 
+        #vin is the key,
+        #vehicle_data is the value
+        #[:vin] is the value of the key 
         year: vehicle_data[:year],
         make: vehicle_data[:make],
         model: vehicle_data[:model],

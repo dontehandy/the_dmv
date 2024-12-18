@@ -1,6 +1,10 @@
 require 'date'
 require 'pry'
+require_relative 'vehicle'
 require_relative 'dmv_data_service'
+require './lib/facility'
+
+
 
 class Facility
   attr_accessor :name, :address, :phone, :services #accessor method creates getter and setter methods for each attribute, #setter methods allow you to change the value of the attribute
@@ -85,7 +89,7 @@ class Facility
       case state 
       #case statement with the state as the argument
       #a case statement is used to compare the argument with the when clauses
-      when :co
+      when :co #signifies when the state is :co :co is a symbol that represents the state of Colorado
       #when the state is :co
       #the when clause is used to compare the argument with the value following it
         new( #is shorthand for Facility.new, below is the hash that is passed as an argument to the new method, argument total per instance is 1 because it is a hash
@@ -132,6 +136,26 @@ class Facility
   end
 end
 
-#to access data using pry
-# start from lib folder
+#the above method is a class method that creates facility objects based on the state
+#using a case statement to compare the state with the when clauses
+#creating a new facility object with the name, address, phone, and services based on the state
+#the data is populated from the dmv_data_service.rb file
+#returning an array of facility objects based on the state
+#using the new method to create a new facility object - tried shorthand with new instead of Facility.new *don't like*
 
+#to run the code in the terminal, navigate to the lib directory and run irb
+# require './facility.rb' ==> true
+# from here you can create a new facility object by calling Facility.new and passing in the details as a hash
+# but this is already being done in the dmv_data_service.rb file via API and the create_from_data method
+
+
+#but to create one manually you would do the following:
+#require './facility.rb' ==> true
+# facility = Facility.new(name: 'Test Facility', address: '123 Test St, Test City, TS 12345', phone: '123-456-7890', services: ['Vehicle Registration'])
+# facility.name ==> 'Test Facility'
+
+#facility.class => Facility 
+#facility.methods => [:name, :name=, :address, :address=, :phone, :phone=, :services, :services=, :registered_vehicles, :collected_fees, :add_service, :register_vehicle, :administer_written_test, :administer_road_test, :renew_drivers_license]
+#facility.methods - Object.methods => [:name, :name=, :address, :address=, :phone, :phone=, :services, :services=, :registered_vehicles, :collected_fees, :add_service, :register_vehicle, :administer_written_test, :administer_road_test, :renew_drivers_license]
+
+#no real data on this page to interact with, but you can see the methods available to you and the attributes of the facility object
